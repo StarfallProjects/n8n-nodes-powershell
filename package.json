@@ -6,10 +6,10 @@
     "n8n-community-node-package", "powershell"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/StarfallProjects/n8n-nodes-powershell",
   "author": {
     "name": "Deborah Barnard",
-    "email": ""
+    "website": "https://starfallprojects.co.uk/"
   },
   "repository": {
     "type": "git",

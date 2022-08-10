@@ -8,7 +8,7 @@ n8n provides an Execute Command node, which allows you to execute scripts on you
 
 ## Installation
 
-1. Make sure you have PowerShell installed on the same machine as n8n. The node gives you the option to use either your default PowerShell installation, or your default PowerShell Core installation. You can't currently choose between multiple PowerShell (or PowerShell Core) versions.
+1. Make sure you have PowerShell installed on the same machine as n8n. The node gives you the option to use either your default PowerShell installation, or your default PowerShell Core installation. You can't choose between multiple PowerShell (or PowerShell Core) versions.
 2. Follow the n8n documentation to [install community nodes](https://docs.n8n.io/integrations/community-nodes/installation/).
 
 ## Usage
@@ -17,7 +17,20 @@ n8n provides an Execute Command node, which allows you to execute scripts on you
 
 ## Limitations
 
+### Not available on Cloud or Desktop
+
 Like the Execute Command node, the PowerShell node won't work on n8n Cloud.
 
 Community nodes are currently unavailable on n8n Desktop.
+
+###
+
+## Technical background
+
+This node uses `execPromise`, an n8n function that promisifies Node.js' `child_process.exec()`. Refer to the [Node.js 16.x documentation](https://nodejs.org/docs/latest-v16.x/api/child_process.html#child_processexeccommand-options-callback) for more background.
+
+> **Note:** because we're using `exec` rather than `spawn`, there is no option to detach the child process. This means the n8n workflow waits for the PowerShell script to complete before proceeding.
+
+> **Note:** `exec` is designed to handle commands with small outputs. Be cautious about using this node for memory-heavy operations.
+
 

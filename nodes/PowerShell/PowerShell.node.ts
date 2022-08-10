@@ -62,9 +62,9 @@ export class PowerShell implements INodeType {
     outputs: ['main'],
     properties: [
 			{
-				displayName: 'Choose PowerShell type',
+				displayName: 'Choose PowerShell Type',
 				name: 'shellChoice',
-				description: 'Choose PowerShell to use your default full PowerShell installation (probably PowerShell 5), or PowerShell Core to use your default PowerShell Core (PowerShell 6 or 7) installation.',
+				description: 'Choose PowerShell to use your default full PowerShell installation (probably PowerShell 5), or PowerShell Core to use your default PowerShell Core (PowerShell 6 or 7) installation',
 				type: 'options',
 				default: 'powershell.exe',
 				options: [
@@ -88,7 +88,7 @@ export class PowerShell implements INodeType {
           rows: 10,
         },
         placeholder: 'Write-Output "Hello World"',
-        description: 'Write a command to execute',  
+        description: 'Write a command to execute',
       },
       {
 				displayName: 'Execute Once',
@@ -99,6 +99,8 @@ export class PowerShell implements INodeType {
 			},
     ],
   };
+
+
 
 
   async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
@@ -151,4 +153,4 @@ export class PowerShell implements INodeType {
 		return this.prepareOutputData(returnItems);
   }
 
-};
+}

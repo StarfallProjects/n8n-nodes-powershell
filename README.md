@@ -11,10 +11,6 @@ n8n provides an Execute Command node, which allows you to execute scripts on you
 1. Make sure you have PowerShell installed on the same machine as n8n. The node gives you the option to use either your default PowerShell installation, or your default PowerShell Core installation. You can't choose between multiple PowerShell (or PowerShell Core) versions.
 2. Follow the n8n documentation to [install community nodes](https://docs.n8n.io/integrations/community-nodes/installation/).
 
-## Usage
-
-
-
 ## Limitations
 
 ### Not available on Cloud or Desktop
@@ -23,7 +19,13 @@ Like the Execute Command node, the PowerShell node won't work on n8n Cloud.
 
 Community nodes are currently unavailable on n8n Desktop.
 
-###
+### Requires PowerShell
+
+You must have PowerShell installed on the same machine as n8n.
+
+### Limited PowerShell selection
+
+You can choose either PowerShell or PowerShell Core to run your script. The node uses the default installation. This means if you have PowerShell 3.x, 4.x, and 5.x installed, it will automatically use the default. You can't use the node to select an alternative installation. This shouldn't be a problem with PowerShell, as the latest version has good backwards compatibility, but you may need to be aware of differences between the main PowerShell Core versions.
 
 ## Technical background
 

@@ -1,7 +1,7 @@
 {
-  "name": "n8n-nodes-powershell",
-  "version": "0.1.0",
-  "description": "",
+  "name": "@starfallprojects/n8n-nodes-powershell",
+  "version": "1.0.0",
+  "description": "Run PowerShell scripts within an n8n workflow.",
   "keywords": [
     "n8n-community-node-package", "powershell"
   ],
@@ -19,10 +19,10 @@
   "scripts": {
     "build": "tsc && gulp build:icons",
     "dev": "tsc --watch",
-    "format": "prettier nodes credentials --write",
-    "lint": "tslint -p tsconfig.json -c tslint.json && eslint nodes credentials package.json",
-    "lintfix": "tslint --fix -p tsconfig.json -c tslint.json && eslint nodes credentials package.json --fix",
-    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
+    "format": "prettier nodes --write",
+    "lint": "tslint -p tsconfig.json -c tslint.json && eslint nodes package.json",
+    "lintfix": "tslint --fix -p tsconfig.json -c tslint.json && eslint nodes package.json --fix",
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes package.json"
   },
   "files": [
     "dist"

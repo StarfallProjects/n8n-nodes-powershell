@@ -47,20 +47,20 @@ function execPromise(command: string, shellChoice: string): Promise<IExecReturnD
 }
 
 export class PowerShell implements INodeType {
-  description: INodeTypeDescription = {
-    displayName: 'PowerShell',
-    name: 'PowerShell',
-    icon: 'file:powershell.svg',
-    group: [],
-    version: 1,
+	description: INodeTypeDescription = {
+		displayName: 'PowerShell',
+		name: 'PowerShell',
+		icon: 'file:powershell.svg',
+		group: [],
+		version: 1,
 		subtitle: '',
-    description: 'Run PowerShell commands from n8n',
-    defaults: {
-      name: 'PowerShell'
-    },
-    inputs: ['main'],
-    outputs: ['main'],
-    properties: [
+		description: 'Run PowerShell commands from n8n',
+		defaults: {
+			name: 'PowerShell',
+		},
+		inputs: ['main'],
+		outputs: ['main'],
+		properties: [
 			{
 				displayName: 'Choose PowerShell Type',
 				name: 'shellChoice',
@@ -75,44 +75,43 @@ export class PowerShell implements INodeType {
 					{
 						name: 'PowerShell Core',
 						value: 'pwsh.exe',
-					}
-				]
-
+					},
+				],
 			},
-      {
-        displayName: 'Command',
-        name: 'command',
-        type: 'string',
-        default: '',
-        typeOptions: {
-          rows: 10,
-        },
-        placeholder: 'Write-Output "Hello World"',
-        description: 'Write a command to execute',
-      },
-      {
+			{
+				displayName: 'Command',
+				name: 'command',
+				type: 'string',
+				default: '',
+				typeOptions: {
+					rows: 10,
+				},
+				placeholder: 'Write-Output "Hello World"',
+				description: 'Write a command to execute',
+			},
+			{
 				displayName: 'Execute Once',
 				name: 'executeOnce',
 				type: 'boolean',
 				default: true,
 				description: 'Whether to execute only once (enabled) instead of once for each entry (disabled)',
 			},
-    ],
-  };
+		],
+	};
 
 
 
 
-  async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
-    let items = this.getInputData();
+	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
+		let items = this.getInputData();
 		let command: string;
 		let shellChoice: string;
-    const executeOnce = this.getNodeParameter('executeOnce', 0) as boolean;
+		const executeOnce = this.getNodeParameter('executeOnce', 0) as boolean;
 
 		if (executeOnce === true) {
 			items = [items[0]];
 		}
-    const returnItems: INodeExecutionData[] = [];
+		const returnItems: INodeExecutionData[] = [];
 		for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
 			try {
 				command = this.getNodeParameter('command', itemIndex) as string;
@@ -151,6 +150,6 @@ export class PowerShell implements INodeType {
 		}
 
 		return this.prepareOutputData(returnItems);
-  }
+	}
 
 }

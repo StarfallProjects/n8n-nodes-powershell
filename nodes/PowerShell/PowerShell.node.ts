@@ -74,7 +74,7 @@ export class PowerShell implements INodeType {
 					},
 					{
 						name: 'PowerShell Core',
-						value: 'pwsh.exe',
+						value: 'pwsh',
 					},
 				],
 			},
